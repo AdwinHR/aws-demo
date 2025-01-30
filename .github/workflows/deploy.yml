@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22  # Change to your required Node.js version
+          node-version: 20  # Use the latest LTS version
 
       - name: Install dependencies
         run: npm install
@@ -29,8 +29,8 @@ jobs:
         with:
           args: --delete
         env:
-          AWS_S3_BUCKET: react-aws-asd
+          AWS_S3_BUCKET: react-aws-asd  # Ensure this matches your actual bucket name
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ap-south-1  # e.g., us-east-1
+          AWS_REGION: ap-south-1  # Double-check this in AWS Console
           SOURCE_DIR: "build"
